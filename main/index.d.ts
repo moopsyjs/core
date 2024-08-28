@@ -35,17 +35,13 @@ export declare enum MoopsyRawServerToClientMessageEventEnum {
  * Type of "event" in a raw server to client message
  */
 export declare type MoopsyRawServerToClientMessageEventType = `${MoopsyRawServerToClientMessageEventEnum}` | `subscription-result.${string}` | `response.${string}` | `publication.${string}`;
-export interface MoopsyS2CMessage_OutboxResponse {
-    event: "outbox-response";
-    messages: string[];
-}
 /**
  * The raw message (after EJSON parse) that goes into and comes out of the WebSocket
  */
 export declare type MoopsyRawServerToClientMessageType = {
     event: MoopsyRawServerToClientMessageEventType;
     data: any;
-} | MoopsyS2CMessage_OutboxResponse;
+};
 export declare enum MoopsyC2SEventEnum {
     "AUTH_LOGIN" = "auth/login",
     "PING" = "ping",

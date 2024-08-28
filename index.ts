@@ -54,18 +54,13 @@ export enum MoopsyRawServerToClientMessageEventEnum {
     | `publication.${string}`
  ;
 
- export interface MoopsyS2CMessage_OutboxResponse {
-    event: "outbox-response",
-    messages: string[]
- }
-
 /**
  * The raw message (after EJSON parse) that goes into and comes out of the WebSocket
  */
  export type MoopsyRawServerToClientMessageType = {
     event: MoopsyRawServerToClientMessageEventType,
     data: any,
-} | MoopsyS2CMessage_OutboxResponse;
+};
 
 export enum MoopsyC2SEventEnum  {
     "AUTH_LOGIN" = "auth/login",
