@@ -15,35 +15,35 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.SeamlessRawClientToServerMessageEventEnum = exports.SeamlessC2SEventEnum = exports.SeamlessRawServerToClientMessageEventEnum = exports.SeamlessError = void 0;
-var SeamlessError = /** @class */ (function (_super) {
-    __extends(SeamlessError, _super);
-    function SeamlessError(code, error, description) {
+exports.MoopsyRawClientToServerMessageEventEnum = exports.MoopsyC2SEventEnum = exports.MoopsyRawServerToClientMessageEventEnum = exports.MoopsyError = void 0;
+var MoopsyError = /** @class */ (function (_super) {
+    __extends(MoopsyError, _super);
+    function MoopsyError(code, error, description) {
         var _this = _super.call(this, error) || this;
-        _this._isSeamlessError = true;
+        _this._isMoopsyError = true;
         Object.setPrototypeOf(_this, Error.prototype);
         _this.code = code;
         _this.error = error;
         _this.description = description !== null && description !== void 0 ? description : error;
         return _this;
     }
-    return SeamlessError;
+    return MoopsyError;
 }(Error));
-exports.SeamlessError = SeamlessError;
-var SeamlessRawServerToClientMessageEventEnum;
-(function (SeamlessRawServerToClientMessageEventEnum) {
-    SeamlessRawServerToClientMessageEventEnum["AUTH_ERROR"] = "auth/error";
-    SeamlessRawServerToClientMessageEventEnum["AUTH_SUCCESS"] = "auth/success";
-    SeamlessRawServerToClientMessageEventEnum["PONG"] = "pong";
-    SeamlessRawServerToClientMessageEventEnum["CONNECTION_CLOSE"] = "connection-closed";
-})(SeamlessRawServerToClientMessageEventEnum = exports.SeamlessRawServerToClientMessageEventEnum || (exports.SeamlessRawServerToClientMessageEventEnum = {}));
-var SeamlessC2SEventEnum;
-(function (SeamlessC2SEventEnum) {
-    SeamlessC2SEventEnum["AUTH_LOGIN"] = "auth/login";
-    SeamlessC2SEventEnum["PING"] = "ping";
-    SeamlessC2SEventEnum["SUBSCRIBE_TO_TOPIC"] = "subscribe-to-topic";
-    SeamlessC2SEventEnum["PUBLISH_TO_TOPIC"] = "publish-to-topic";
-    SeamlessC2SEventEnum["CALL"] = "call";
-    SeamlessC2SEventEnum["CHECK_OUTBOX"] = "check-outbox";
-})(SeamlessC2SEventEnum = exports.SeamlessC2SEventEnum || (exports.SeamlessC2SEventEnum = {}));
-exports.SeamlessRawClientToServerMessageEventEnum = SeamlessC2SEventEnum;
+exports.MoopsyError = MoopsyError;
+var MoopsyRawServerToClientMessageEventEnum;
+(function (MoopsyRawServerToClientMessageEventEnum) {
+    MoopsyRawServerToClientMessageEventEnum["AUTH_ERROR"] = "auth/error";
+    MoopsyRawServerToClientMessageEventEnum["AUTH_SUCCESS"] = "auth/success";
+    MoopsyRawServerToClientMessageEventEnum["PONG"] = "pong";
+    MoopsyRawServerToClientMessageEventEnum["CONNECTION_CLOSE"] = "connection-closed";
+})(MoopsyRawServerToClientMessageEventEnum = exports.MoopsyRawServerToClientMessageEventEnum || (exports.MoopsyRawServerToClientMessageEventEnum = {}));
+var MoopsyC2SEventEnum;
+(function (MoopsyC2SEventEnum) {
+    MoopsyC2SEventEnum["AUTH_LOGIN"] = "auth/login";
+    MoopsyC2SEventEnum["PING"] = "ping";
+    MoopsyC2SEventEnum["SUBSCRIBE_TO_TOPIC"] = "subscribe-to-topic";
+    MoopsyC2SEventEnum["PUBLISH_TO_TOPIC"] = "publish-to-topic";
+    MoopsyC2SEventEnum["CALL"] = "call";
+    MoopsyC2SEventEnum["CHECK_OUTBOX"] = "check-outbox";
+})(MoopsyC2SEventEnum = exports.MoopsyC2SEventEnum || (exports.MoopsyC2SEventEnum = {}));
+exports.MoopsyRawClientToServerMessageEventEnum = MoopsyC2SEventEnum;

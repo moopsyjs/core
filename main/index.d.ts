@@ -1,7 +1,7 @@
 export declare type EndpointType = string;
 export declare type MethodType = "POST" | "GET";
 export declare type ParamsTypeGuardType = (params: any) => boolean;
-export declare type SeamlessBlueprintPlugType = {
+export declare type MoopsyBlueprintPlugType = {
     endpoint: EndpointType;
     params: any;
     method: MethodType;
@@ -11,21 +11,21 @@ export interface RateLimitingConfigType {
     calls: number;
     per: number;
 }
-export declare type SeamlessBlueprintConstsType = {
+export declare type MoopsyBlueprintConstsType = {
     Endpoint: EndpointType;
     Method: MethodType;
     isPublic?: boolean;
     paramsSchema?: any;
     RateLimitingConfig?: RateLimitingConfigType;
 };
-export declare class SeamlessError extends Error {
+export declare class MoopsyError extends Error {
     code: number;
     error: string;
     description: string;
-    _isSeamlessError: boolean;
+    _isMoopsyError: boolean;
     constructor(code: number, error: string, description?: string);
 }
-export declare enum SeamlessRawServerToClientMessageEventEnum {
+export declare enum MoopsyRawServerToClientMessageEventEnum {
     "AUTH_ERROR" = "auth/error",
     "AUTH_SUCCESS" = "auth/success",
     "PONG" = "pong",
@@ -34,19 +34,19 @@ export declare enum SeamlessRawServerToClientMessageEventEnum {
 /**
  * Type of "event" in a raw server to client message
  */
-export declare type SeamlessRawServerToClientMessageEventType = `${SeamlessRawServerToClientMessageEventEnum}` | `subscription-result.${string}` | `response.${string}` | `publication.${string}`;
-export interface SeamlessS2CMessage_OutboxResponse {
+export declare type MoopsyRawServerToClientMessageEventType = `${MoopsyRawServerToClientMessageEventEnum}` | `subscription-result.${string}` | `response.${string}` | `publication.${string}`;
+export interface MoopsyS2CMessage_OutboxResponse {
     event: "outbox-response";
     messages: string[];
 }
 /**
  * The raw message (after EJSON parse) that goes into and comes out of the WebSocket
  */
-export declare type SeamlessRawServerToClientMessageType = {
-    event: SeamlessRawServerToClientMessageEventType;
+export declare type MoopsyRawServerToClientMessageType = {
+    event: MoopsyRawServerToClientMessageEventType;
     data: any;
-} | SeamlessS2CMessage_OutboxResponse;
-export declare enum SeamlessC2SEventEnum {
+} | MoopsyS2CMessage_OutboxResponse;
+export declare enum MoopsyC2SEventEnum {
     "AUTH_LOGIN" = "auth/login",
     "PING" = "ping",
     "SUBSCRIBE_TO_TOPIC" = "subscribe-to-topic",
@@ -54,66 +54,66 @@ export declare enum SeamlessC2SEventEnum {
     "CALL" = "call",
     "CHECK_OUTBOX" = "check-outbox"
 }
-export interface SeamlessC2SMessage_CheckOutbox {
-    event: SeamlessC2SEventEnum.CHECK_OUTBOX;
+export interface MoopsyC2SMessage_CheckOutbox {
+    event: MoopsyC2SEventEnum.CHECK_OUTBOX;
     data: void;
 }
 /**
  * The raw message (after EJSON parse) that goes into and comes out of the WebSocket
  */
-export declare type SeamlessRawClientToServerMessageType = {
-    event: Omit<SeamlessC2SEventEnum, SeamlessC2SEventEnum.CHECK_OUTBOX>;
+export declare type MoopsyRawClientToServerMessageType = {
+    event: Omit<MoopsyC2SEventEnum, MoopsyC2SEventEnum.CHECK_OUTBOX>;
     data: any;
-} | SeamlessC2SMessage_CheckOutbox;
+} | MoopsyC2SMessage_CheckOutbox;
 /**
  * Type of a side effect
  */
-export declare type SeamlessCallSideEffectType = {
+export declare type MoopsyCallSideEffectType = {
     sideEffectId: string | number;
     method: string;
     params: any;
 };
 /**
- * Type of "data" for a Seamless Call event
+ * Type of "data" for a Moopsy Call event
  */
-export declare type SeamlessCallType = {
+export declare type MoopsyCallType = {
     method: string;
     params: any;
     callId: string;
-    sideEffects?: Array<SeamlessCallSideEffectType>;
+    sideEffects?: Array<MoopsyCallSideEffectType>;
 };
 /**
  * Message out of websocket that server sends to client on call response
  */
-export declare type SeamlessCallResponseType<MutationResultType = any> = {
+export declare type MoopsyCallResponseType<MutationResultType = any> = {
     mutationResult: MutationResultType;
     sideEffectResults: Array<{
         sideEffectId: string | number;
         result: any;
     }>;
 };
-export interface SeamlessSubscribeToTopicEventData {
+export interface MoopsySubscribeToTopicEventData {
     topic: string;
     topicId: string;
     params: any;
     id?: string;
 }
-export interface SeamlessPublishToTopicEventData {
+export interface MoopsyPublishToTopicEventData {
     topic: string;
     topicId: string;
     data: any;
 }
-export interface SeamlessTopicSpecTyping {
+export interface MoopsyTopicSpecTyping {
     TopicNameType: string;
     SubscriptionParamsType: any;
     MessageType: any;
 }
-export interface SeamlessTopicSpecConstsType {
+export interface MoopsyTopicSpecConstsType {
     TopicID: string;
     TopicNameRegExp: RegExp;
     SubscriptionParamsSchema?: any;
 }
-export interface SeamlessAuthenticationSpec {
+export interface MoopsyAuthenticationSpec {
     PublicAuthType: any;
     AuthRequestType: any;
 }
@@ -124,8 +124,8 @@ export interface IncomingRestRequestType {
 /**
  * @deprecated
  */
-export { SeamlessC2SEventEnum as SeamlessRawClientToServerMessageEventEnum };
+export { MoopsyC2SEventEnum as MoopsyRawClientToServerMessageEventEnum };
 /**
  * @deprecated
  */
-export declare type SeamlessRawClientToServerMessageEventType = `${SeamlessC2SEventEnum}`;
+export declare type MoopsyRawClientToServerMessageEventType = `${MoopsyC2SEventEnum}`;
