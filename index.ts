@@ -50,6 +50,7 @@ export enum MoopsyRawServerToClientMessageEventEnum {
  export type MoopsyRawServerToClientMessageEventType =
     `${MoopsyRawServerToClientMessageEventEnum}`
     | `subscription-result.${string}`
+    | `publication-error.${string}`
     | `response.${string}`
     | `publication.${string}`
  ;
