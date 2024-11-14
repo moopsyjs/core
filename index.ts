@@ -161,3 +161,7 @@ export { MoopsyC2SEventEnum as MoopsyRawClientToServerMessageEventEnum };
  * @deprecated
  */
 export type MoopsyRawClientToServerMessageEventType = `${MoopsyC2SEventEnum}`;
+
+export interface MoopsyStream<T> {
+    __moopsyStream: true;
+}
