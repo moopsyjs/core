@@ -41,6 +41,7 @@ export enum MoopsyRawServerToClientMessageEventEnum {
     "AUTH_ERROR" = "auth/error",
     "AUTH_SUCCESS" = "auth/success",
     "PONG" = "pong",
+    "PING" = "ping",
     "CONNECTION_CLOSE" = "connection-closed"
 }
 
